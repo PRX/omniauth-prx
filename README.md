@@ -31,7 +31,7 @@ end
 ```
 To get the key and secret, login to PRX, then visit:
   
-http://www.prx.org/oauth_clients
+https://www.prx.org/oauth_clients
 
 to set-up your client application.
 
