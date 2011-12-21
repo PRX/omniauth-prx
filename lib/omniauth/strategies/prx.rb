@@ -28,7 +28,8 @@ module OmniAuth
           :login      => u['login'],
           :email      => u['email'],
           :first_name => u['first_name'],
-          :last_name  => u['last_name']
+          :last_name  => u['last_name'],
+          :accounts   => u['accounts']
         }
       end
 
