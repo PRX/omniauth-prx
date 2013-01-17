@@ -15,14 +15,12 @@ module OmniAuth
       # additional calls (if the user id is returned with the token
       # or as a URI parameter). This may not be possible with all
       # providers.
-      uid do
-        "org.prx.users.#{raw_info['uid']}" #a UID is expected to be a string.
-      end
+      uid { raw_info['uid'].to_s }
 
       info do
         u = raw_info['info']
         {
-          :uid        => "org.prx.users.#{raw_info['uid']}",
+          :uid        => u['uid'].to_s,
           :login      => u['login'],
           :email      => u['email'],
           :first_name => u['first_name'],
