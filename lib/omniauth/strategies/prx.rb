@@ -2,9 +2,9 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class PRX < OmniAuth::Strategies::OAuth2
+    class Prx < OmniAuth::Strategies::OAuth2
       # Give your strategy a name.
-      option :name, "PRX"
+      option :name, "prx"
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
@@ -16,15 +16,13 @@ module OmniAuth
       # or as a URI parameter). This may not be possible with all
       # providers.
       uid do
-        tmp = raw_info['uid']
-        # puts "uid: #{tmp}, raw:#{raw_info.inspect}"
-        tmp
+        "org.prx.users.#{raw_info['uid']}" #a UID is expected to be a string.
       end
 
       info do
         u = raw_info['info']
         {
-          :uid        => raw_info['uid'],
+          :uid        => "org.prx.users.#{raw_info['uid']}",
           :login      => u['login'],
           :email      => u['email'],
           :first_name => u['first_name'],
@@ -44,13 +42,11 @@ module OmniAuth
       end
       
       def get_raw_info
-        t = access_token
-        # puts "get_raw_info: access_token: #{t.inspect}"
-        r = access_token.get('/me', {'Accept' => 'application/json'}).parsed
-        # puts "get_raw_info: response: #{r.inspect}"
-        r
-      end
-      
+        access_token.get('/me', {'Accept' => 'application/json'}).parsed
+      end  
     end
+
+    # Alias for backward compatibility
+    PRX = Prx
   end
 end
