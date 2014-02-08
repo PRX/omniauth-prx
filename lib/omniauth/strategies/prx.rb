@@ -24,12 +24,13 @@ module OmniAuth
           :email      => raw_info['email'],
           :first_name => raw_info['first_name'],
           :last_name  => raw_info['last_name'],
-          :urls       => {"Profile" => "http://www.prx.org/users/#{raw_info['id']}#{raw_info['login']}"}
+          :urls       => {"Profile" => "http://www.prx.org/users/#{raw_info['id']}-#{raw_info['login']}"}
         }
       end
 
       extra do
         {
+          :accounts   => raw_info['accounts'],
           :raw_info   => raw_info
         }
       end
