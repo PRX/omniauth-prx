@@ -1,8 +1,8 @@
 # OmniAuth PRX
 
-An upcoming release of PRX (www.prx.org) will provide OAuth2 support for login and access to v2 of the PRX API.
+PRX Exchange (exchange.prx.org) provides OAuth2 support for login and access to v2 of the PRX API.
 
-Currently, PRX supports OpenID authentication, and uses an API key for access to V1 of the PRX API.
+It also still supports OpenID authentication, and uses an API key for access to V1 of the PRX API.
 
 OmniAuth PRX is based on the OmniAuth-OAuth2 gem template for OAuth2 strategies.
 
@@ -30,8 +30,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 To get the key and secret, login to PRX, then visit:
-  
-https://www.prx.org/oauth_clients
+
+https://exchange.prx.org/oauth_clients
 
 to set-up your client application.
-
