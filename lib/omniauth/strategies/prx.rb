@@ -8,7 +8,7 @@ module OmniAuth
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
-      option :client_options, {:site => "https://exchange.prx.org"}
+      option :client_options, { :site => "https://exchange.prx.org" }
 
       # These are called after authentication has succeeded. If
       # possible, you should try to set the UID without making
@@ -24,7 +24,7 @@ module OmniAuth
           :email      => raw_info['email'],
           :first_name => raw_info['first_name'],
           :last_name  => raw_info['last_name'],
-          :urls       => {"Profile" => "http://exchange.prx.org/users/#{raw_info['id']}-#{raw_info['login']}"}
+          :urls       => { "Profile" => "http://exchange.prx.org/users/#{raw_info['id']}-#{raw_info['login']}" }
         }
       end
 
